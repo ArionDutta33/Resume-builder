@@ -31,9 +31,12 @@ const ResumeForm = ({ resumeData, setResumeData }: ResumeFormProps) => {
 
   const generateSummary = async (input: string) => {
     setLoading(true);
-    const response = await axios.post("http://localhost:3000/response", {
-      describe: input,
-    });
+    const response = await axios.post(
+      "https://5736955a-4256-49d5-8849-e7233097d0e9.us-east-1.cloud.genez.io/response",
+      {
+        describe: input,
+      }
+    );
     setGeneratedSummary(response.data.summary);
     setLoading(false);
     setAiSummary("");
